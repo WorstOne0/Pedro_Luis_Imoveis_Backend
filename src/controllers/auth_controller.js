@@ -1,0 +1,35 @@
+// NPM Packages
+import bcrypt from "bcrypt";
+// JWT
+import { createToken } from "../jwt.js";
+// Models
+import User from "../models/user.js";
+
+export default {
+  //
+  login: async (req, res, next) => {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email }, { password: 0 });
+    const userDecrypt = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ error: "User not Found" });
+    }
+
+    // Decrypt the Password
+    if (!(await bcrypt.compare(password, userDecrypt.password))) {
+      // Wrong password
+      return res.status(401).json({ error: "Incorrect email or password" });
+    }
+
+    // Create Tokens
+    const accessToken = createToken(user);
+
+    return res.json({
+      status: 200,
+      user,
+      accessToken,
+    });
+  },
+};
