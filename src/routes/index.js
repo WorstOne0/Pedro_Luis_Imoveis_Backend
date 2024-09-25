@@ -2,8 +2,8 @@ import express from "express";
 const router = express.Router();
 
 import version from "./version.js";
-import authRoute from "./auth_route.js";
-import realEstateRoute from "./real_estate_route.js";
+import authRoute from "../features/auth/routes/auth_route.js";
+import realEstateRoute from "../features/real_estate/routes/real_estate_route.js";
 
 // Routes
 router.use(version);

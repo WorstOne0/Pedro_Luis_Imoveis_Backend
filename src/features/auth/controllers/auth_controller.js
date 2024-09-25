@@ -1,9 +1,9 @@
 // NPM Packages
 import bcrypt from "bcrypt";
 // JWT
-import { createToken } from "../jwt.js";
+import { createToken } from "@src/jwt.js";
 // Models
-import User from "../models/user.js";
+import User from "@src/features/user/models/user.js";
 
 export default {
   //

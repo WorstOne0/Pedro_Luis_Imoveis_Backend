@@ -9,7 +9,6 @@ const RealEstateSchema = new Schema(
       type: String,
       default: v4,
     },
-    postedBy: { type: String },
     //
     title: {
       type: String,
@@ -23,11 +22,6 @@ const RealEstateSchema = new Schema(
       type: String,
       required: true,
     },
-    //
-    favorite: {
-      type: String,
-      required: true,
-    },
     // Info
     price: {
       type: Number,
@@ -37,20 +31,17 @@ const RealEstateSchema = new Schema(
       type: Number,
       required: true,
     },
-    room: {
+    rooms: {
       type: Number,
       required: true,
     },
-    suite: {
+    bathrooms: {
       type: Number,
       required: true,
     },
-    garage: {
+    garages: {
       type: Number,
       required: true,
-    },
-    additionalInfo: {
-      type: Object,
     },
     //
     addressId: {
@@ -60,7 +51,7 @@ const RealEstateSchema = new Schema(
     thumbnail: {
       type: String,
     },
-    imagens: {
+    images: {
       type: Array,
     },
     // Dates
