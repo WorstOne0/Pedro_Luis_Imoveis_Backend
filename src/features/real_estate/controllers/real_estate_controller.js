@@ -21,7 +21,7 @@ export default {
           images: [],
         },
         {
-          _id: "1",
+          _id: "2",
           title: "Casa",
           description: "Casa em boa condição",
           type: "Aparamento",
