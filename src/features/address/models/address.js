@@ -42,12 +42,8 @@ const AddressSchema = new Schema(
       required: true,
     },
     //
-    latitude: {
-      type: Number,
-      required: false,
-    },
-    longitude: {
-      type: Number,
+    position: {
+      type: Object,
       required: false,
     },
     // Dates
