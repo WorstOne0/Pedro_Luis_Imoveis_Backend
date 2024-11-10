@@ -74,7 +74,35 @@ export default {
     const { _id } = req.params;
 
     try {
-      const realEstate = await RealEstate.find({ _id });
+      // const realEstate = await RealEstate.find({ _id });
+      const realEstate = {
+        _id: "2",
+        title: "Casa",
+        description: "Casa em boa condição",
+        type: "apartament",
+        price: 2000000,
+        area: 200,
+        rooms: 3,
+        bathrooms: 1,
+        garages: 1,
+        thumbnail: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
+        images: [],
+        address: {
+          _id: "4",
+          targetId: "1",
+          cep: "12345-678",
+          street: "Street",
+          district: "District",
+          city: "City",
+          state: "State",
+          complement: "Complement",
+          number: "Number",
+          position: {
+            lat: -24.960731,
+            lng: -53.519697,
+          },
+        },
+      };
 
       return res.json({ status: 200, payload: realEstate, message: "Ok!" });
     } catch (error) {
