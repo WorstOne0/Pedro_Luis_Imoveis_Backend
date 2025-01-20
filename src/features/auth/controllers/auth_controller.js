@@ -14,13 +14,13 @@ export default {
     const userDecrypt = await User.findOne({ email });
 
     if (!user) {
-      return res.status(404).json({ error: "User not Found" });
+      return res.status(404).json({ status: 404, error: "User not Found" });
     }
 
     // Decrypt the Password
     if (!(await bcrypt.compare(password, userDecrypt.password))) {
       // Wrong password
-      return res.status(401).json({ error: "Incorrect email or password" });
+      return res.status(401).json({ status: 401, error: "Incorrect email or password" });
     }
 
     // Create Tokens
