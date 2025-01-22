@@ -14,22 +14,29 @@ export default {
     const userDecrypt = await User.findOne({ email });
 
     if (!user) {
-      return res.status(404).json({ status: 404, error: "User not Found" });
+      return res.json({ status: 404, error: "User not Found" });
     }
 
     // Decrypt the Password
     if (!(await bcrypt.compare(password, userDecrypt.password))) {
       // Wrong password
-      return res.status(401).json({ status: 401, error: "Incorrect email or password" });
+      return res.json({ status: 401, error: "Incorrect email or password" });
     }
 
-    // Create Tokens
+    // Create Token
     const accessToken = createToken(user);
 
-    return res.json({
-      status: 200,
-      user,
-      accessToken,
-    });
+    return res.json({ status: 200, accessToken });
+  },
+  session: async (req, res, next) => {
+    const { user } = req;
+
+    const sessionUser = await User.findOne({ _id: user._id }, { password: 0 });
+
+    if (!sessionUser) {
+      return res.json({ status: 404, error: "User not Found" });
+    }
+
+    return res.json({ status: 200, user: sessionUser });
   },
 };
