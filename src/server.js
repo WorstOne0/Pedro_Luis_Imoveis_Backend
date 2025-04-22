@@ -6,6 +6,7 @@ dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import path from "path";
 // Routes
 import router from "./routes/index.js";
 // Models
@@ -23,6 +24,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(router);
+
+const __dirname = path.resolve();
+app.use("/images", express.static(path.join(__dirname, "public")));
 
 // Database Connect
 mongoose.connect(process.env.MONGO_DB, {

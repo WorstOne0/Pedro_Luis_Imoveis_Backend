@@ -1,6 +1,6 @@
 // NPM Packages
 import express from "express";
-import { verifyToken } from "../../../jwt.js";
+import { verifyToken } from "../../../middlewares/index.js";
 // Controller
 import realEstateController from "../controllers/real_estate_controller.js";
 

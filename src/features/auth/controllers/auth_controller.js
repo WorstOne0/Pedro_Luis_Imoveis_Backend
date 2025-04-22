@@ -1,7 +1,7 @@
 // NPM Packages
 import bcrypt from "bcrypt";
 // JWT
-import { createToken } from "@src/jwt.js";
+import { createToken } from "@src/middlewares/index.js";
 // Models
 import User from "@src/features/user/models/user.js";
 
