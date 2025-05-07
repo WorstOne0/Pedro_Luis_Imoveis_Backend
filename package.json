@@ -1,12 +1,12 @@
 {
   "name": "dollars_backend",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "nodemon --loader esm-module-alias/loader --no-warnings src/server.js",
-    "start": "node src/server.js"
+    "start": "node --loader esm-module-alias/loader --no-warnings src/server.js"
   },
   "dependencies": {
     "aws-sdk": "^2.1415.0",
