@@ -22,5 +22,5 @@ services:
       - MONGO_INITDB_DATABASE=pedro_luis_imoveis
     volumes:
       - type: bind
-        source: ./data
+        source: /data
         target: /data/db
