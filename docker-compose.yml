@@ -23,4 +23,4 @@ services:
     volumes:
       - type: bind
         source: ./data
-        target: ./data/db
+        target: /data/db
