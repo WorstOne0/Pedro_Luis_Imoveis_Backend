@@ -16,8 +16,17 @@ const RealEstateSchema = new Schema(
     type: {
       type: String,
       required: true,
+      enum: ["apartment", "house", "land", "shop", "sobrado"],
+    },
+    title: {
+      type: String,
     },
     // Info
+    sale: {
+      type: String,
+      required: true,
+      enum: ["sell", "rent", "both"],
+    },
     price: {
       type: Number,
       required: true,
@@ -37,6 +46,10 @@ const RealEstateSchema = new Schema(
     garages: {
       type: Number,
       required: true,
+    },
+    featured: {
+      type: Boolean,
+      default: false,
     },
     //
     address: {
@@ -62,7 +75,6 @@ const RealEstateSchema = new Schema(
       },
       complement: {
         type: String,
-        required: true,
       },
       number: {
         type: String,

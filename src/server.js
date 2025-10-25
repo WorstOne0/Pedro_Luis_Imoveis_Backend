@@ -30,9 +30,7 @@ app.use("/images", express.static(path.join(__dirname, "public")));
 
 // Database Connect
 console.log("Connecting to Database...", process.env.MONGO_DB);
-mongoose.connect(process.env.MONGO_DB, {
-  useNewUrlParser: true,
-});
+mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true });
 
 // Add the super admin to the database
 initSuperAdmin();

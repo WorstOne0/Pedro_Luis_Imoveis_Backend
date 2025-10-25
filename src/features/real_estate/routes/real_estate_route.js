@@ -12,5 +12,7 @@ router.post("/real_estate", realEstateController.get);
 router.post("/real_estate/:_id", realEstateController.getById);
 router.post("/real_estate", verifyToken, tempMulter.array("images", 10), realEstateUpload, realEstateController.create);
 router.put("/real_estate", verifyToken, tempMulter.array("images", 10), realEstateUpload, realEstateController.update);
+//
+router.post("/real_estate/oldDB/import", verifyToken, realEstateController.importOldDB);
 
 export default router;
