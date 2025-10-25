@@ -7,20 +7,20 @@ services:
       - LETSENCRYPT_HOST=${HOST}
       - VIRTUAL_HOST=${HOST}
       - VIRTUAL_PORT=${PORT}
-    depends_on:
-      - mongodb
     ports:
       - ${PORT}:${PORT}
     expose:
       - ${PORT}
-  mongodb:
-    image: mongodb/mongodb-community-server:6.0-ubi8
-    restart: unless-stopped
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=user
-      - MONGO_INITDB_ROOT_PASSWORD=pass
-      - MONGO_INITDB_DATABASE=pedro_luis_imoveis
-    # volumes:
-    #   - type: bind
-    #     source: ./data
-    #     target: /data/db
+    depends_on:
+      - mongodb
+  # mongodb:
+  #   image: mongodb/mongodb-community-server:6.0-ubi8
+  #   restart: unless-stopped
+  #   environment:
+  #     - MONGO_INITDB_ROOT_USERNAME=user
+  #     - MONGO_INITDB_ROOT_PASSWORD=pass
+  #     - MONGO_INITDB_DATABASE=pedro_luis_imoveis
+  #   volumes:
+  #     - type: bind
+  #       source: ./data
+  #       target: /data/db

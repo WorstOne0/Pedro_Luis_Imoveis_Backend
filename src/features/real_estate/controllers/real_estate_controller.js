@@ -2,7 +2,6 @@
 import RealEstate from "../models/real_estate.js";
 
 export default {
-  // ** CRUD Operations **
   get: async (req, res, next) => {
     try {
       // const realEstateList = await RealEstate.find({});

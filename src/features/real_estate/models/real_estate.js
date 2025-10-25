@@ -2,7 +2,6 @@ import { Schema, model } from "mongoose";
 import { v4 } from "uuid";
 import mongoosePaginate from "mongoose-paginate-v2";
 
-// Maybe change lates into saparated schemas
 const RealEstateSchema = new Schema(
   {
     _id: {
@@ -10,10 +9,6 @@ const RealEstateSchema = new Schema(
       default: v4,
     },
     //
-    title: {
-      type: String,
-      required: true,
-    },
     description: {
       type: String,
       required: false,
@@ -44,8 +39,40 @@ const RealEstateSchema = new Schema(
       required: true,
     },
     //
-    addressId: {
-      type: String,
+    address: {
+      cep: {
+        type: String,
+        required: true,
+      },
+      street: {
+        type: String,
+        required: true,
+      },
+      district: {
+        type: String,
+        required: true,
+      },
+      city: {
+        type: String,
+        required: true,
+      },
+      state: {
+        type: String,
+        required: true,
+      },
+      complement: {
+        type: String,
+        required: true,
+      },
+      number: {
+        type: String,
+        required: true,
+      },
+      //
+      position: {
+        type: Object,
+        required: false,
+      },
     },
     //
     thumbnail: {
