@@ -10,6 +10,7 @@ export default {
 
       return res.json({ status: 200, payload: realEstateList, message: "Ok!" });
     } catch (error) {
+      console.log("Error - real_estate_controller.js - get", error);
       return res.json({ status: 500, message: JSON.stringify(error) });
     }
   },
@@ -21,15 +22,20 @@ export default {
 
       return res.json({ status: 200, payload: realEstate, message: "Ok!" });
     } catch (error) {
+      console.log("Error - real_estate_controller.js - getById", error);
       return res.json({ status: 500, message: JSON.stringify(error) });
     }
   },
   create: async (req, res) => {
     try {
-      const realEstate = await RealEstate.create(req.body);
+      const { metadata, images, thumbnail } = req.body;
+      const body = { ...JSON.parse(metadata), images, thumbnail };
+
+      const realEstate = await RealEstate.create(body);
 
       return res.json({ status: 200, payload: realEstate, message: "Ok!" });
     } catch (error) {
+      console.log("Error - real_estate_controller.js - create", error);
       return res.json({ status: 500, message: JSON.stringify(error) });
     }
   },
@@ -41,6 +47,7 @@ export default {
 
       return res.json({ status: 200, payload: realEstate, message: "Ok!" });
     } catch (error) {
+      console.log("Error - real_estate_controller.js - update", error);
       return res.json({ status: 500, message: JSON.stringify(error) });
     }
   },
